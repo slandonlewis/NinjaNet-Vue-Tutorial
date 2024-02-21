@@ -26,3 +26,7 @@ li {
 .ongoing {
     background-color: aquamarine;
 }
+
+.fav {
+    background-color: rgb(255, 96, 96);
+}

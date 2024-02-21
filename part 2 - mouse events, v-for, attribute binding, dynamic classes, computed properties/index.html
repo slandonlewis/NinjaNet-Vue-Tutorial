@@ -56,7 +56,7 @@
         <div v-show="showList">
             <p>Ongoing shows are highlighted green</p>
             <ul>
-                <li v-for="item in animeShows" :class="{ ongoing: item.ongoing}">
+                <li v-for="item in animeShows" :class="{ fav: item.fav, ongoing: item.ongoing }" @click="toggleFav(item)">
                    <h3>{{ item.title }}</h3> 
                    <p>{{ item.studio }}</p>
                    <img :src="item.imgURL" :alt="item.title" height="150" width="100"> <!-- binding data to these image tags-->

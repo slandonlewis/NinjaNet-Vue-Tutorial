@@ -51,15 +51,24 @@
         <hr>
 
         <!-- Outputting Lists -->
+        <h2>List of Anime I Like</h2>
+        <button @click="toggleShowList">Show/Hide Anime List</button>
         <div v-show="showList">
             <ul>
                 <li v-for="item in animeShows">
                    <h3>{{ item.title }}</h3> 
                    <p>{{ item.studio }}</p>
+                   <img :src="item.imgURL" :alt="item.title" height="150" width="80"> <!-- binding data to these image tags-->
                 </li>
             </ul>
         </div>
-        <button @click="toggleShowList">Show/Hide Anime List</button>
+        <hr>
+
+        <!-- Attribute/Data Binding -->
+        <a v-bind:href="urlToBind" target="_blank">Using v-bind, I attached the YouTube link to this attribute tag</a>
+        <hr>
+
+        <!-- Dynamic Classes -->
     </div>
     <script src="app.js"></script>
 </body>

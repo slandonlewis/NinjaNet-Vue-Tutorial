@@ -6,3 +6,23 @@
     margin: 20px;
     display: inline-block;
 }
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    background-color: rgb(62, 170, 170);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 5px;
+    text-align: center;
+    align-items: center;
+}
+
+.ongoing {
+    background-color: aquamarine;
+}

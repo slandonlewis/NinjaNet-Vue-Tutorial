@@ -54,11 +54,13 @@
         <h2>List of Anime I Like</h2>
         <button @click="toggleShowList">Show/Hide Anime List</button>
         <div v-show="showList">
+            <p>Ongoing shows are highlighted green</p>
             <ul>
-                <li v-for="item in animeShows">
+                <li v-for="item in animeShows" :class="{ ongoing: item.ongoing}">
                    <h3>{{ item.title }}</h3> 
                    <p>{{ item.studio }}</p>
-                   <img :src="item.imgURL" :alt="item.title" height="150" width="80"> <!-- binding data to these image tags-->
+                   <img :src="item.imgURL" :alt="item.title" height="150" width="100"> <!-- binding data to these image tags-->
+                   <p v-show="item.ongoing"><b>ONGOING</b></p>
                 </li>
             </ul>
         </div>

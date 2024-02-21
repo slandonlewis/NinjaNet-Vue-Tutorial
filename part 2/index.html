@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Toggle showText -->
+        <button @click="toggleShowText">Show/Hide Text</button>
+
+        <!-- Show this HTML if showText is true -->
+        <div v-if="showText">
+            <h1>{{ title }}</h1>
+            <!-- Outputting a variable or dynamic value inside template -->
+            <p>Number: {{ number }}</p>
+            <!-- Click event listeners on buttons -->
+            <button v-on:click="number++">Increase Number</button>
+            <button v-on:click="number--">Decrease Number</button>
+            <!-- Click event listener for div -->
+            <h2 @click="changeText('The text has changed')">
+                Click here to change the text
+            </h2>
+        </div>
+
+        <!-- Show this HTML if showText is false -->
+        <div v-if="!showText">
+            <h2>The text is hidden...</h2>
+        </div>
+
+        <!-- Display HTML using v-show instead of v-if -->
+        <p v-show="showText">This specific text will be displayed or hidden by v-show depending on the value of
+            the showText property
+        </p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

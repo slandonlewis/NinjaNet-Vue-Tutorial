@@ -5,6 +5,7 @@ const app = Vue.createApp({
             showText: false,
             showBoxes: false,
             showList: false,
+            showFavorites: false,
             title: 'Changable Text',
             number: 0,
             x: 0,
@@ -34,6 +35,9 @@ const app = Vue.createApp({
         toggleFav(anime){
             anime.fav = !anime.fav
         },
+        toggleFavList() {
+            this.showFavorites = !this.showFavorites
+        },
         handleEvent(e, data) {
             window.alert(e.type)
             if (data) {
@@ -43,6 +47,12 @@ const app = Vue.createApp({
         handleMousemove(e) {
             this.x = e.offsetX
             this.y = e.offsetY
+        }
+    },
+    // computed properties
+    computed: {
+        filteredShows() {
+            return this.animeShows.filter((anime) => anime.fav)
         }
     }
 })

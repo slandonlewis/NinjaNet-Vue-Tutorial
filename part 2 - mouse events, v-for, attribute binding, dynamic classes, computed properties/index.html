@@ -70,7 +70,19 @@
         <a v-bind:href="urlToBind" target="_blank">Using v-bind, I attached the YouTube link to this attribute tag</a>
         <hr>
 
-        <!-- Dynamic Classes -->
+        <!-- Computed Properties -->
+        <h2>Favorite Anime</h2>
+        <button @click="toggleFavList">Show/Hide Favorites List</button>
+        <div v-show="showFavorites">
+            <ul>
+                <li v-for="item in filteredShows" :class="{ fav: item.fav }">
+                   <h3>{{ item.title }}</h3> 
+                   <p>{{ item.studio }}</p>
+                   <img :src="item.imgURL" :alt="item.title" height="150" width="100"> <!-- binding data to these image tags-->
+                   <p v-show="item.ongoing"><b>ONGOING</b></p>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

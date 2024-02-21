@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Vue Playground</h1>
     <div id="app">
         <!-- Toggle showText -->
         <button @click="toggleShowText">Show/Hide Text</button>
 
         <!-- Show this HTML if showText is true -->
         <div v-if="showText">
-            <h1>{{ title }}</h1>
+            <h2>{{ title }}</h2>
             <!-- Outputting a variable or dynamic value inside template -->
             <p>Number: {{ number }}</p>
             <!-- Click event listeners on buttons -->
@@ -34,6 +36,16 @@
         <p v-show="showText">This specific text will be displayed or hidden by v-show depending on the value of
             the showText property
         </p>
+        <br>
+        <!-- Mouse events -->
+        <div v-show="showBoxes">
+            <h2>Interact with the boxes to trigger events</h2>
+            <div class="box" @mouseover="handleEvent($event, 5)">mouse over</div>
+            <div class="box" @mouseleave="handleEvent">mouse leave</div>
+            <div class="box" @dblclick="handleEvent">double click</div>
+            <div class="box" @mousemove="handleMousemove">position: {{x}}, {{y}}</div>
+        </div>
+        <button @click="toggleShowBoxes">Show/Hide Boxes</button>
     </div>
     <script src="app.js"></script>
 </body>

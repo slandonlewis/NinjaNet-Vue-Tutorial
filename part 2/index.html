@@ -10,6 +10,7 @@
 <body>
     <h1>Vue Playground</h1>
     <div id="app">
+        <hr>
         <!-- Toggle showText -->
         <button @click="toggleShowText">Show/Hide Text</button>
 
@@ -31,6 +32,7 @@
         <div v-if="!showText">
             <h2>The text is hidden...</h2>
         </div>
+        <hr>
 
         <!-- Display HTML using v-show instead of v-if -->
         <p v-show="showText">This specific text will be displayed or hidden by v-show depending on the value of
@@ -46,6 +48,18 @@
             <div class="box" @mousemove="handleMousemove">position: {{x}}, {{y}}</div>
         </div>
         <button @click="toggleShowBoxes">Show/Hide Boxes</button>
+        <hr>
+
+        <!-- Outputting Lists -->
+        <div v-show="showList">
+            <ul>
+                <li v-for="item in animeShows">
+                   <h3>{{ item.title }}</h3> 
+                   <p>{{ item.studio }}</p>
+                </li>
+            </ul>
+        </div>
+        <button @click="toggleShowList">Show/Hide Anime List</button>
     </div>
     <script src="app.js"></script>
 </body>

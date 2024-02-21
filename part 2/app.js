@@ -4,10 +4,16 @@ const app = Vue.createApp({
         return {
             showText: false,
             showBoxes: false,
+            showList: false,
             title: 'Changable Text',
             number: 0,
             x: 0,
-            y: 0
+            y: 0,
+            animeShows: [
+                { title: 'FullMetal Alchemist Brotherhood', studio: 'Studio BONES'},
+                { title: 'Dragon Ball Z', studio: 'Toei Animation'},
+                { title: 'Jujutsu Kaisen', studio: 'Studio MAPPA'}
+            ]
         }
     },
     // functions
@@ -20,6 +26,9 @@ const app = Vue.createApp({
         },
         toggleShowBoxes() {
             this.showBoxes = !this.showBoxes
+        },
+        toggleShowList() {
+            this.showList = !this.showList
         },
         handleEvent(e, data) {
             window.alert(e.type)
